@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.filesystemanalyzer.controller.MainController">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Путь:"/>
+            <TextField fx:id="pathField" promptText="/home" HBox.hgrow="ALWAYS"/>
+            <Button text="Анализировать" fx:id="analyzeButton"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TreeTableView fx:id="treeTable" style="-fx-font-family: 'JetBrains Mono';">
+            <columns>
+                <TreeTableColumn text="Имя файла" fx:id="nameColumn" prefWidth="250"/>
+                <TreeTableColumn text="Владелец" fx:id="ownerColumn" prefWidth="100"/>
+                <TreeTableColumn text="Тип" fx:id="typeColumn" prefWidth="80"/>
+                <TreeTableColumn text="Размер" fx:id="sizeColumn" prefWidth="100"/>
+                <TreeTableColumn text="Дата создания" fx:id="dateColumn" prefWidth="180"/>
+            </columns>
+        </TreeTableView>
+    </center>
+</BorderPane>
