@@ -57,7 +57,6 @@ public class MainController {
     }
 
     private void setupTableColumns() {
-        // Настройка колонки "Имя файла" с иконками
         nameColumn.setCellValueFactory(param ->
                 new SimpleStringProperty(param.getValue().getValue().getName()));
 

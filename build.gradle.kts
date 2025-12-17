@@ -79,16 +79,23 @@ tasks {
 
         manifest {
             attributes["Main-Class"] = "com.example.filesystemanalyzer.MainApp"
-            // Указываем модули JavaFX в аргументах JVM
             attributes["Add-Opens"] = "java.base/java.lang=ALL-UNNAMED java.base/java.nio=ALL-UNNAMED"
         }
 
-        // Включение всех зависимостей, включая JavaFX
         configurations = listOf(project.configurations.runtimeClasspath.get())
 
-        // Исключение конфликтующих файлов
         exclude("META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA")
         exclude("META-INF/versions/**", "META-INF/maven/**", "META-INF/LICENSE*")
         exclude("module-info.class")
+    }
+}
+
+tasks.shadowJar {
+    archiveBaseName.set("FileSystemAnalyzer")
+    archiveVersion.set("1.0")
+    archiveClassifier.set("")
+
+    manifest {
+        attributes["Main-Class"] = application.mainClass
     }
 }
